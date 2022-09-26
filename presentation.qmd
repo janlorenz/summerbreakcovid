@@ -1,5 +1,6 @@
 ---
-title: "Data Story Title"
+title: "Summer school vacations have accelarated/decelerated the CoVid-19 Pandemic in Germany"
+subtitle: "NO CONTENT YET"
 format: 
   revealjs:
     slide-number: true

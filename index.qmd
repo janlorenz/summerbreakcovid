@@ -1,6 +1,7 @@
 ---
-title: "Project Title"
-author: "Your Names"
+title: "The effect of summer school vacation on the CoViD-19 pandemic 2020-2022"
+subtitle: "STATUS: PROJECT PITCH"
+author: "Jan Lorenz"
 format: 
   html:
     toc: true                   # This creates the table of context menu
@@ -30,79 +31,58 @@ This slide deck presents the main insights:
 
 Detailed project report
 
-*The following headlines are suggestions only.*
-
 ## Outline
 
-*What questions will the report address and why?*
+The fate of a pandemic is determined by the reproductive number^[Need a definition here.]. Exponential growth or decline of new cases is determined by the reproductive number being above or below one. Small differences in environmental conditions, for example seasonality, can be important to make the difference. Also changes in daily behavior can make a difference. An interesting question is the effect of summer school vacation, because one may think of different consequences:
 
-*How can data be accessed. Code for loading.*
+- During vacation kids are not in school as well as many of their parents who take holidays. This cuts off many daily channels of contagion. 
+- On the other hand, families tend to travel during vacation which opens new channels of contagion through contacts while travelling or visits of relatives and friends. 
 
-*Information how data is collected. Who collects data.*
+**Data**
 
-*Be very brief here, if necessary provide and refer to an appendix. You can also use footnotes.^[This is a footnote, which can be used for more information which maybe a reader.]*
+Detailed data for Germany on regional units is availbel through the RKI
+<https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland_Archiv>.
+Some wrangling is needed to format it properly but that should be feasible:
 
-Your report shall follow an "inverted pyramid" story format [see @Dykes2019EffectiveDataStorytelling] as shown in @fig-dykesstoryformats .
+- Group by federal state
+- Computation of moving weekly average per day
 
-![Story formats.](img/dykes_storyformats.png){#fig-dykesstoryformats}
+Data for the German summer school holidays is regionally different across the federal states of Germany which makes a nice natural setting to detangle the effect of vacation from the general trend of the pandemic. 
 
-Remove all this text and put you content.^[Using this template is not mandatory.]
-
-:::{.callout-note}
-If the final report has sufficient quality, it can be published to the web directly from here, if you want. 
-Also a check for copyright or data privacy violations is necessary.
-:::
+Need a nice data source or some handwork to read summer school vacations in. 
 
 
-## Main visualization of the data 
 
-*Better give a more substantial title.*
 
-This should present you main point visually with one (or more) figures.
+## Over all summer school vacations accelerates/decelerates contagio (TO BE ANSWERED) 
 
-```{r}
-#| label: fig-mainvisualization
-#| fig-cap: "The figure shows this ... (but is just a placeholder)."
-mpg |> ggplot(aes(displ, hwy)) + geom_point()
-```
 
-@fig-mainvisualization shows the insight.
+![A figure from an earlier analysis](img/draft.png){#fig-mainvisualization}
 
-*Refer here to*
+@fig-mainvisualization should communicate the general (average) answer. The current draft figure shows only the case numbers for one state compared to Germany's average trend. AIt also shows beginning and end of vacation. 
 
-- *Additional visualizations and analysis below*
-- *Interactive Visualization / Dashboard below*
 
 ## Additional visualizations and further analyses with the data
 
-*Better give a more substantial title.*
+Further analysis then should do: 
 
-### You may have subsections here or elsewhere
-
-### However, subsections usually make sense when there is more than one
+- discuss if the effect was different in 2020, 2021, and 2022
+- discuss some cases especially those states who deviate from the average answer, what are potential reasons
 
 ## Conclusion
 
-*Topics like: What have we learned? How does it fit in or help in broader contexts? What remains open?*
+Discuss generalizability of results. Probably limited but possible if another pandemic has similar proporties. 
+
 
 ## Interactive Visualization / Data Dashboard {.appendix}
 
-*Either have this here or on another webpage (new quarto file).*
-
-*Interactive visualizations may also appear above.* 
-
-*The focus here is to provide the reader with sensible ways to explore the data independently. You have to think about what could be of interest.*
-
+It should be possible to make a dashboard with selection of states and years and perhaps also some dynamic state rankings. 
 
 
 
 ## Data Source {.appendix}
 
-*If specific information and details about the data source would be too long in the "Outline" section, put it in an appendix section.* 
-
-## Other appendix sections {.appendix}
-
-*Do the same with other text which distracts the reading of the main text. *
+Probably necessary. 
 
 ## References {.unnumbered .appendix}
 
