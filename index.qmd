@@ -1,5 +1,5 @@
 ---
-title: "The effect of summer break in school on the CoViD-19 pandemic 2020-2022 in Germany"
+title: "The summer break effect  the CoViD-19 pandemic 2020-2022 in Germany"
 subtitle: "STATUS: FIRST DRAFT"
 author: "Jan Lorenz"
 format: 
