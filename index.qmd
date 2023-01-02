@@ -1,7 +1,7 @@
 ---
 title: "The summer break effect  the CoViD-19 pandemic 2020-2022 in Germany"
-subtitle: "STATUS: FIRST DRAFT"
 author: "Jan Lorenz"
+date: "Mon, Dec 2, 2023"
 format: 
   html:
     toc: true                   # This creates the table of context menu
@@ -11,16 +11,6 @@ format:
     code-tools: true
 bibliography: references.bib
 ---
-
-<!-- This slide deck presents the main insights: -->
-
-<!-- ```{=html} -->
-<!-- <iframe class="slide-deck" style="border:1px solid lightgray;" width="100%" height="500" src="presentation.html"></iframe> -->
-<!-- ``` -->
-
-<!-- [Presentation in standalone browser tab.](presentation.html){.internal target="_blank"} -->
-
-<!-- Detailed project report -->
 
 ## Outline
 
@@ -33,8 +23,11 @@ This data analysis sheds light on these questions analyzing data from German fed
 
 ## Data
 
+German summer school holidays regionally differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. 
+
 ```{r}
-#| label: packages-data
+#| label: fig-vacation
+#| fig-cap: "Summer school vacations on Germany's federal states 2020 to 2022."
 #| message: false
 
 # These are the packages used in the report
@@ -52,16 +45,12 @@ load("data/RKI_vacation_shp.RData")
 #             Summer school vacation per federal state (BL=shortcode, Land=name of state, 
 #             with start and end date and year
 # DE_shp    : Shape files for maps of federal states 
-```
 
-German summer school holidays regionally differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. 
-
-```{r}
-#| label: fig-vacation
-#| fig-cap: "Summer school vacations on Germany's federal states 2020 to 2022."
+# Compute variation of start and end dates
 variation <- summervac |> group_by(year) |> 
   summarize(start_variation = max(start) -min(start),
             end_variation = max(end) -min(end))
+# Plot of durations
 summervac |> pivot_longer(c(start,end)) |> 
   ggplot(aes(x = value, y = fct_rev(Land))) + 
   geom_point() + geom_line() + 

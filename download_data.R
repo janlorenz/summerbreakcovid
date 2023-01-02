@@ -1,7 +1,9 @@
 library(tidyverse)
+library(lubridate)
 library(sf)
 library(jsonlite)
 library(httr)
+
 
 options(timeout = max(300, getOption("timeout"))) # increase timeout to improve probability for download success
 download.file("https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland/raw/main/Aktuell_Deutschland_SarsCov2_Infektionen.csv",
