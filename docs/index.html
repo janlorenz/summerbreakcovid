@@ -9,7 +9,7 @@
 <meta name="author" content="Jan Lorenz">
 <meta name="dcterms.date" content="2023-12-02">
 
-<title>The summer break effect the CoViD-19 pandemic 2020-2022 in Germany</title>
+<title>The summer break effect on the CoViD-19 in Germany 2020-2022</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,7 +160,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline"><span class="toc-section-number">1</span>  Outline</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="toc-section-number">2</span>  Data</a></li>
-  <li><a href="#over-all-summer-school-vacations-acceleratesdecelerates-contagio-to-be-answered" id="toc-over-all-summer-school-vacations-acceleratesdecelerates-contagio-to-be-answered" class="nav-link" data-scroll-target="#over-all-summer-school-vacations-acceleratesdecelerates-contagio-to-be-answered"><span class="toc-section-number">3</span>  Over all summer school vacations accelerates/decelerates contagio (TO BE ANSWERED)</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="toc-section-number">3</span>  Analysis</a></li>
   <li><a href="#additional-visualizations-and-further-analyses-with-the-data" id="toc-additional-visualizations-and-further-analyses-with-the-data" class="nav-link" data-scroll-target="#additional-visualizations-and-further-analyses-with-the-data"><span class="toc-section-number">4</span>  Additional visualizations and further analyses with the data</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="toc-section-number">5</span>  Conclusion</a></li>
   <li><a href="#interactive-visualization-data-dashboard" id="toc-interactive-visualization-data-dashboard" class="nav-link" data-scroll-target="#interactive-visualization-data-dashboard"><span class="toc-section-number">6</span>  Interactive Visualization / Data Dashboard</a></li>
@@ -174,7 +174,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">The summer break effect the CoViD-19 pandemic 2020-2022 in Germany</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">The summer break effect on the CoViD-19 in Germany 2020-2022</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -208,11 +208,12 @@ div.csl-indent {
 <li>During summer break kids are not in school as well as many of their parents who take holidays. This cuts off many daily channels of contagion.</li>
 <li>On the other hand, families tend to travel during holidays which opens new channels of contagion through contacts while travelling or visits of relatives and friends.</li>
 </ul>
-<p>This data analysis sheds light on these questions analyzing data from German federal states for the years 2020, 2021 and 2022.</p>
+<p>This data analysis uses data from German federal states for the years 2020, 2021 and 2022. Over all, summer breaks in school seem to be more accelerating than decelerating contagion. However, this effect has almost vanished to be inconclusive in 2022 which marks the beginning of the endemic phase in Germany.</p>
 </section>
 <section id="data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
-<p>German summer school holidays regionally differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic.</p>
+<p>German summer school holidays differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic.</p>
+<p>The dates of the summer breaks are shown in <a href="#fig-vacation">Figure&nbsp;1</a>.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -254,8 +255,9 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>The dates of the summer breaks are shown in <a href="#fig-vacation">Figure&nbsp;1</a>. The holiday end dates vary by maximally 44 days in 2021 (42 days in 2020, 34 days in 2022).</p>
-<p>The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. <a href="#fig-generaltrend">Figure&nbsp;2</a> shows these trends for the summer months in 2020, 2021, and 2022. The new cases differ substantially in over all size.</p>
+<p>The ending dates of summer breaks differ by maximally 44 days in 2021 (42 days in 2020, 34 days in 2022).</p>
+<p>The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. Detailed data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at <a href="https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland" class="uri">https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland</a>. The data is aggregated to new cases per day per federal states. For the following analyses we use seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting.</p>
+<p><a href="#fig-generaltrend">Figure&nbsp;2</a> shows the German-wide trends for the months June, July, August and September in 2020, 2021, and 2022. The trajectories of daily new cases (seven-day averages) differ substantially between the years: maximally around 2,000 new cases in 2020; slightly more than 10,000 daily new cases in 2021, and a maximum of almost 100,000 new cases a day in 2022.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -278,8 +280,8 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="over-all-summer-school-vacations-acceleratesdecelerates-contagio-to-be-answered" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="over-all-summer-school-vacations-acceleratesdecelerates-contagio-to-be-answered"><span class="header-section-number">3</span> Over all summer school vacations accelerates/decelerates contagio (TO BE ANSWERED)</h2>
+<section id="analysis" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="analysis"><span class="header-section-number">3</span> Analysis</h2>
 <p><a href="#fig-example-BW">Figure&nbsp;3</a> demonstrates the basic idea of the analysis: For each state-year combination we look how much the summer break increases or decreased the new cases compared with the German-wide trend. To that end, we normalize the German-wide trend such that the new cases in the state and the German-wide trend coincide at the beginning of the holidays.</p>
 <div class="cell">
 <details>
@@ -419,7 +421,6 @@ sample estimates:
 0.03910296 </code></pre>
 </div>
 </div>
-<p>Detailed data for Germany on regional units is available through the RKI <a href="https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland" class="uri">https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland</a>. The data is aggregate to new cases per day per federal states.</p>
 </section>
 <section id="additional-visualizations-and-further-analyses-with-the-data" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="additional-visualizations-and-further-analyses-with-the-data"><span class="header-section-number">4</span> Additional visualizations and further analyses with the data</h2>
@@ -737,7 +738,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb16" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The summer break effect  the CoViD-19 pandemic 2020-2022 in Germany"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "The summer break effect on the CoViD-19 in Germany 2020-2022"</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Jan Lorenz"</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> "Mon, Dec 2, 2023"</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
@@ -745,7 +746,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true                   # This creates the table of context menu</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 2                # Increase if you want to have subsections in the table of context menu</span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true </span></span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> references.bib</span></span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
@@ -757,248 +758,247 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>During summer break kids are not in school as well as many of their parents who take holidays. This cuts off many daily channels of contagion. </span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>On the other hand, families tend to travel during holidays which opens new channels of contagion through contacts while travelling or visits of relatives and friends. </span>
 <span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>This data analysis sheds light on these questions analyzing data from German federal states for the years 2020, 2021 and 2022. </span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>This data analysis uses data from German federal states for the years 2020, 2021 and 2022. Over all, summer breaks in school seem to be more accelerating than decelerating contagion. However, this effect has almost vanished to be inconclusive in 2022 which marks the beginning of the endemic phase in Germany. </span>
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data</span></span>
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>German summer school holidays regionally differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. </span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>German summer school holidays differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. </span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-vacation</span></span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Summer school vacations on Germany's federal states 2020 to 2022."</span></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co"># These are the packages used in the report</span></span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a><span class="co"># raw data sources, download or documentation, data processing, and saving are done by the script download_data.R</span></span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/RKI_vacation_shp.RData"</span>)</span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co"># This loads</span></span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="co"># RKIstate  : 16854 x 3 (stateCode, Refdatum, Fall)</span></span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co">#             Has new cases (Fall) per federal state (stateCode) per day (Refdatum)</span></span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="co"># summervac : 48 x 5 </span></span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co">#             Summer school vacation per federal state (BL=shortcode, Land=name of state, </span></span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co">#             with start and end date and year</span></span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="co"># DE_shp    : Shape files for maps of federal states </span></span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute variation of start and end dates</span></span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>variation <span class="ot">&lt;-</span> summervac <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> </span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start_variation =</span> <span class="fu">max</span>(start) <span class="sc">-</span><span class="fu">min</span>(start),</span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>            <span class="at">end_variation =</span> <span class="fu">max</span>(end) <span class="sc">-</span><span class="fu">min</span>(end))</span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of durations</span></span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>summervac <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="fu">c</span>(start,end)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">y =</span> <span class="fu">fct_rev</span>(Land))) <span class="sc">+</span> </span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> </span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_minor_breaks =</span> <span class="st">"1 week"</span>) <span class="sc">+</span></span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>The dates of the summer breaks are shown in @fig-vacation. The holiday end dates vary by maximally <span class="in">`r variation |&gt; filter(year==2021) |&gt; pull(end_variation)`</span> days in 2021 (<span class="in">`r variation |&gt; filter(year==2020) |&gt; pull(end_variation)`</span> days in 2020, <span class="in">`r variation |&gt; filter(year==2022) |&gt; pull(end_variation)`</span> days in 2022).</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>The dates of the summer breaks are shown in @fig-vacation. </span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-vacation</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Summer school vacations on Germany's federal states 2020 to 2022."</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a><span class="co"># These are the packages used in the report</span></span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a><span class="co"># raw data sources, download or documentation, data processing, and saving are done by the script download_data.R</span></span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/RKI_vacation_shp.RData"</span>)</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a><span class="co"># This loads</span></span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a><span class="co"># RKIstate  : 16854 x 3 (stateCode, Refdatum, Fall)</span></span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a><span class="co">#             Has new cases (Fall) per federal state (stateCode) per day (Refdatum)</span></span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a><span class="co"># summervac : 48 x 5 </span></span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a><span class="co">#             Summer school vacation per federal state (BL=shortcode, Land=name of state, </span></span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a><span class="co">#             with start and end date and year</span></span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a><span class="co"># DE_shp    : Shape files for maps of federal states </span></span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute variation of start and end dates</span></span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>variation <span class="ot">&lt;-</span> summervac <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span> </span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">start_variation =</span> <span class="fu">max</span>(start) <span class="sc">-</span><span class="fu">min</span>(start),</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>            <span class="at">end_variation =</span> <span class="fu">max</span>(end) <span class="sc">-</span><span class="fu">min</span>(end))</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot of durations</span></span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>summervac <span class="sc">|&gt;</span> <span class="fu">pivot_longer</span>(<span class="fu">c</span>(start,end)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">y =</span> <span class="fu">fct_rev</span>(Land))) <span class="sc">+</span> </span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span> </span>
+<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_minor_breaks =</span> <span class="st">"1 week"</span>) <span class="sc">+</span></span>
+<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>)</span>
+<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. @fig-generaltrend shows these trends for the summer months in 2020, 2021, and 2022. The new cases differ substantially in over all size. </span>
+<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>The ending dates of summer breaks differ by maximally <span class="in">`r variation |&gt; filter(year==2021) |&gt; pull(end_variation)`</span> days in 2021 (<span class="in">`r variation |&gt; filter(year==2020) |&gt; pull(end_variation)`</span> days in 2020, <span class="in">`r variation |&gt; filter(year==2022) |&gt; pull(end_variation)`</span> days in 2022).</span>
 <span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-generaltrend</span></span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "General trend of new cases (7 day average) in Germany during the summer months. Note the different values on the y-axis values." </span></span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>smooth_cases <span class="ot">&lt;-</span> <span class="cf">function</span>(x) (x <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">6</span>))<span class="sc">/</span><span class="dv">7</span></span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>RKI_DE <span class="ot">&lt;-</span> RKIstate <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Refdatum) <span class="sc">|&gt;</span> </span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Fall_DE =</span> <span class="fu">sum</span>(Fall)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fall_DE_smooth =</span> <span class="fu">smooth_cases</span>(Fall_DE),</span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(Refdatum))</span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>RKI_DE <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Refdatum,Fall_DE_smooth)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>)</span>
-<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Over all summer school vacations accelerates/decelerates contagio (TO BE ANSWERED) </span></span>
-<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>@fig-example-BW demonstrates the basic idea of the analysis: For each state-year combination we look how much the summer break increases or decreased the new cases compared with the German-wide trend. To that end, we normalize the German-wide trend such that the new cases in the state and the German-wide trend coincide at the beginning of the holidays. </span>
-<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-example-BW</span></span>
-<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Smoothed new cases for the state of Baden-Württemberg (black line) compared to the German-wide trend (blue) normalized such that case numbers coincide at the first day of summer vacation in school. The vacation range is shown in dark gray. The ligher gray area marks ten day after vacation end. The arrow shows if new cases have increased or decreased ten days after the end of the vacation compared to the German-wide trend." </span></span>
-<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 2.4</span></span>
-<span id="cb16-95"><a href="#cb16-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend the dataset with vacation data</span></span>
-<span id="cb16-96"><a href="#cb16-96" aria-hidden="true" tabindex="-1"></a>RKIstate_ext <span class="ot">&lt;-</span> RKIstate <span class="sc">|&gt;</span> </span>
-<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fall_smooth =</span> <span class="fu">smooth_cases</span>(Fall)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(RKI_DE, <span class="at">by =</span> <span class="st">"Refdatum"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(summervac, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"stateCode"</span> <span class="ot">=</span> <span class="st">"BL"</span>))</span>
-<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Make dataset with a normalized trend for each state</span></span>
-<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>RKI <span class="ot">&lt;-</span> RKIstate_ext <span class="sc">|&gt;</span> </span>
-<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Refdatum<span class="sc">==</span>start) <span class="sc">|&gt;</span> </span>
-<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trend_factor =</span> <span class="dv">1</span><span class="sc">/</span>Fall_DE_smooth<span class="sc">*</span>Fall_smooth) <span class="sc">|&gt;</span> </span>
-<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stateCode,year,trend_factor) <span class="sc">|&gt;</span> </span>
-<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(RKIstate_ext, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"stateCode"</span>, <span class="st">"year"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Trend =</span> Fall_DE_smooth <span class="sc">*</span> trend_factor)</span>
-<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a dataset with the measure of vacation_effect per year-state</span></span>
-<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a><span class="co"># vacation_effect = factor from normalized general Trend to state cases 10 days after vacation end</span></span>
-<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a><span class="co"># note that Trend is normalized at vacation start</span></span>
-<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="ot">&lt;-</span> RKI <span class="sc">|&gt;</span> <span class="fu">filter</span>(Refdatum <span class="sc">==</span> end <span class="sc">+</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vacation_effect =</span> Fall_smooth<span class="sc">/</span>Trend, </span>
-<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a>         <span class="at">dir_color =</span> <span class="fu">if_else</span>(vacation_effect <span class="sc">&lt;</span> <span class="dv">1</span>, <span class="st">"down"</span>, <span class="st">"up"</span>))</span>
-<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="co"># colors for arrows in figure</span></span>
-<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"up"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"down"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)</span>
-<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>RKI <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year, stateCode) <span class="sc">|&gt;</span> <span class="fu">filter</span>(stateCode <span class="sc">==</span> <span class="st">"BW"</span>, <span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Refdatum)) <span class="sc">+</span></span>
-<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(BL <span class="sc">==</span> <span class="st">"BW"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Refdatum =</span> start), </span>
-<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(BL <span class="sc">==</span> <span class="st">"BW"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Refdatum =</span> start), </span>
-<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> end, <span class="at">xmax =</span> end <span class="sc">+</span> <span class="dv">10</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Fall_smooth), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Trend),<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(stateCode <span class="sc">==</span> <span class="st">"BW"</span>), </span>
-<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yend =</span> Fall_smooth, <span class="at">y =</span> Trend, <span class="at">xend =</span> Refdatum, <span class="at">x =</span> Refdatum, <span class="at">color =</span> dir_color),  </span>
-<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">angle =</span> <span class="dv">20</span>) ) <span class="sc">+</span></span>
-<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
-<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span> </span>
-<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
-<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>, <span class="at">title =</span> <span class="st">"Summer breaks in Baden-Württemberg"</span>) <span class="sc">+</span> </span>
-<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
-<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a>We measure the increase or decrease as the *vacation effect factor* $v$, such that ... </span>
-<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-main-effect</span></span>
-<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Change from summer break start to ten days after summer break end, compared to the German-wide trend."</span></span>
-<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> </span>
-<span id="cb16-146"><a href="#cb16-146" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">eff_ch =</span> vacation_effect<span class="dv">-1</span>,</span>
-<span id="cb16-147"><a href="#cb16-147" aria-hidden="true" tabindex="-1"></a>         <span class="at">lab_x =</span> <span class="fu">pmax</span>(<span class="dv">0</span>,eff_ch),</span>
-<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a>         <span class="at">eff_lab =</span> <span class="fu">paste0</span>(<span class="fu">if_else</span>(vacation_effect<span class="sc">&gt;</span><span class="dv">1</span>,<span class="st">"+"</span>,<span class="st">""</span>),<span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>), <span class="at">digit=</span><span class="dv">1</span>),<span class="st">"%"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(eff_ch, <span class="fu">fct_rev</span>(Land), <span class="at">label =</span> eff_lab, <span class="at">fill =</span> dir_color)) <span class="sc">+</span> </span>
-<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>lab_x), <span class="at">hjust=</span><span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
-<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">7.5</span>)) <span class="sc">+</span></span>
-<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span> </span>
-<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">title =</span> <span class="st">"Summer break effect"</span>) <span class="sc">+</span></span>
-<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2020</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
-<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
-<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
-<span id="cb16-171"><a href="#cb16-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-172"><a href="#cb16-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>Detailed data for Germany on regional units is available through the RKI</span>
-<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland&gt;</span>. The data is aggregate to new cases per day per federal states. </span>
-<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. </span>
+<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>Detailed data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at</span>
+<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a><span class="ot">&lt;https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland&gt;</span>. The data is aggregated to new cases per day per federal states. For the following analyses we use seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting. </span>
+<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>@fig-generaltrend shows the German-wide trends for the months June, July, August and September in 2020, 2021, and 2022. The trajectories of daily new cases (seven-day averages) differ substantially between the years: maximally around 2,000 new cases in 2020; slightly more than 10,000 daily new cases in 2021, and a maximum of almost 100,000 new cases a day in 2022. </span>
+<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-generaltrend</span></span>
+<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "General trend of new cases (7 day average) in Germany during the summer months. Note the different values on the y-axis values." </span></span>
+<span id="cb16-80"><a href="#cb16-80" aria-hidden="true" tabindex="-1"></a>smooth_cases <span class="ot">&lt;-</span> <span class="cf">function</span>(x) (x <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">1</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">2</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">3</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">5</span>) <span class="sc">+</span> <span class="fu">lag</span>(x,<span class="dv">6</span>))<span class="sc">/</span><span class="dv">7</span></span>
+<span id="cb16-81"><a href="#cb16-81" aria-hidden="true" tabindex="-1"></a>RKI_DE <span class="ot">&lt;-</span> RKIstate <span class="sc">|&gt;</span> <span class="fu">group_by</span>(Refdatum) <span class="sc">|&gt;</span> </span>
+<span id="cb16-82"><a href="#cb16-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Fall_DE =</span> <span class="fu">sum</span>(Fall)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-83"><a href="#cb16-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fall_DE_smooth =</span> <span class="fu">smooth_cases</span>(Fall_DE),</span>
+<span id="cb16-84"><a href="#cb16-84" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(Refdatum))</span>
+<span id="cb16-85"><a href="#cb16-85" aria-hidden="true" tabindex="-1"></a>RKI_DE <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-86"><a href="#cb16-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Refdatum,Fall_DE_smooth)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb16-87"><a href="#cb16-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>)</span>
+<span id="cb16-88"><a href="#cb16-88" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-89"><a href="#cb16-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-90"><a href="#cb16-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-91"><a href="#cb16-91" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analysis </span></span>
+<span id="cb16-92"><a href="#cb16-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-93"><a href="#cb16-93" aria-hidden="true" tabindex="-1"></a>@fig-example-BW demonstrates the basic idea of the analysis: For each state-year combination we look how much the summer break increases or decreased the new cases compared with the German-wide trend. To that end, we normalize the German-wide trend such that the new cases in the state and the German-wide trend coincide at the beginning of the holidays. </span>
+<span id="cb16-94"><a href="#cb16-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-97"><a href="#cb16-97" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-98"><a href="#cb16-98" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-example-BW</span></span>
+<span id="cb16-99"><a href="#cb16-99" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Smoothed new cases for the state of Baden-Württemberg (black line) compared to the German-wide trend (blue) normalized such that case numbers coincide at the first day of summer vacation in school. The vacation range is shown in dark gray. The ligher gray area marks ten day after vacation end. The arrow shows if new cases have increased or decreased ten days after the end of the vacation compared to the German-wide trend." </span></span>
+<span id="cb16-100"><a href="#cb16-100" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 2.4</span></span>
+<span id="cb16-101"><a href="#cb16-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Extend the dataset with vacation data</span></span>
+<span id="cb16-102"><a href="#cb16-102" aria-hidden="true" tabindex="-1"></a>RKIstate_ext <span class="ot">&lt;-</span> RKIstate <span class="sc">|&gt;</span> </span>
+<span id="cb16-103"><a href="#cb16-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fall_smooth =</span> <span class="fu">smooth_cases</span>(Fall)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-104"><a href="#cb16-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(RKI_DE, <span class="at">by =</span> <span class="st">"Refdatum"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-105"><a href="#cb16-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(summervac, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"stateCode"</span> <span class="ot">=</span> <span class="st">"BL"</span>))</span>
+<span id="cb16-106"><a href="#cb16-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-107"><a href="#cb16-107" aria-hidden="true" tabindex="-1"></a><span class="co"># Make dataset with a normalized trend for each state</span></span>
+<span id="cb16-108"><a href="#cb16-108" aria-hidden="true" tabindex="-1"></a>RKI <span class="ot">&lt;-</span> RKIstate_ext <span class="sc">|&gt;</span> </span>
+<span id="cb16-109"><a href="#cb16-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Refdatum<span class="sc">==</span>start) <span class="sc">|&gt;</span> </span>
+<span id="cb16-110"><a href="#cb16-110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trend_factor =</span> <span class="dv">1</span><span class="sc">/</span>Fall_DE_smooth<span class="sc">*</span>Fall_smooth) <span class="sc">|&gt;</span> </span>
+<span id="cb16-111"><a href="#cb16-111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stateCode,year,trend_factor) <span class="sc">|&gt;</span> </span>
+<span id="cb16-112"><a href="#cb16-112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">right_join</span>(RKIstate_ext, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"stateCode"</span>, <span class="st">"year"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-113"><a href="#cb16-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Trend =</span> Fall_DE_smooth <span class="sc">*</span> trend_factor)</span>
+<span id="cb16-114"><a href="#cb16-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-115"><a href="#cb16-115" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a dataset with the measure of vacation_effect per year-state</span></span>
+<span id="cb16-116"><a href="#cb16-116" aria-hidden="true" tabindex="-1"></a><span class="co"># vacation_effect = factor from normalized general Trend to state cases 10 days after vacation end</span></span>
+<span id="cb16-117"><a href="#cb16-117" aria-hidden="true" tabindex="-1"></a><span class="co"># note that Trend is normalized at vacation start</span></span>
+<span id="cb16-118"><a href="#cb16-118" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="ot">&lt;-</span> RKI <span class="sc">|&gt;</span> <span class="fu">filter</span>(Refdatum <span class="sc">==</span> end <span class="sc">+</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-119"><a href="#cb16-119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">vacation_effect =</span> Fall_smooth<span class="sc">/</span>Trend, </span>
+<span id="cb16-120"><a href="#cb16-120" aria-hidden="true" tabindex="-1"></a>         <span class="at">dir_color =</span> <span class="fu">if_else</span>(vacation_effect <span class="sc">&lt;</span> <span class="dv">1</span>, <span class="st">"down"</span>, <span class="st">"up"</span>))</span>
+<span id="cb16-121"><a href="#cb16-121" aria-hidden="true" tabindex="-1"></a><span class="co"># colors for arrows in figure</span></span>
+<span id="cb16-122"><a href="#cb16-122" aria-hidden="true" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"up"</span> <span class="ot">=</span> <span class="st">"red"</span>, <span class="st">"down"</span> <span class="ot">=</span> <span class="st">"darkgreen"</span>)</span>
+<span id="cb16-123"><a href="#cb16-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-124"><a href="#cb16-124" aria-hidden="true" tabindex="-1"></a>RKI <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year, stateCode) <span class="sc">|&gt;</span> <span class="fu">filter</span>(stateCode <span class="sc">==</span> <span class="st">"BW"</span>, <span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-125"><a href="#cb16-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Refdatum)) <span class="sc">+</span></span>
+<span id="cb16-126"><a href="#cb16-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(BL <span class="sc">==</span> <span class="st">"BW"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Refdatum =</span> start), </span>
+<span id="cb16-127"><a href="#cb16-127" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb16-128"><a href="#cb16-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(BL <span class="sc">==</span> <span class="st">"BW"</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Refdatum =</span> start), </span>
+<span id="cb16-129"><a href="#cb16-129" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> end, <span class="at">xmax =</span> end <span class="sc">+</span> <span class="dv">10</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb16-130"><a href="#cb16-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Fall_smooth), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb16-131"><a href="#cb16-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Trend),<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb16-132"><a href="#cb16-132" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(stateCode <span class="sc">==</span> <span class="st">"BW"</span>), </span>
+<span id="cb16-133"><a href="#cb16-133" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yend =</span> Fall_smooth, <span class="at">y =</span> Trend, <span class="at">xend =</span> Refdatum, <span class="at">x =</span> Refdatum, <span class="at">color =</span> dir_color),  </span>
+<span id="cb16-134"><a href="#cb16-134" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">angle =</span> <span class="dv">20</span>) ) <span class="sc">+</span></span>
+<span id="cb16-135"><a href="#cb16-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb16-136"><a href="#cb16-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span> </span>
+<span id="cb16-137"><a href="#cb16-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb16-138"><a href="#cb16-138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>, <span class="at">title =</span> <span class="st">"Summer breaks in Baden-Württemberg"</span>) <span class="sc">+</span> </span>
+<span id="cb16-139"><a href="#cb16-139" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb16-140"><a href="#cb16-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-141"><a href="#cb16-141" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-142"><a href="#cb16-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-143"><a href="#cb16-143" aria-hidden="true" tabindex="-1"></a>We measure the increase or decrease as the *vacation effect factor* $v$, such that ... </span>
+<span id="cb16-144"><a href="#cb16-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-145"><a href="#cb16-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-148"><a href="#cb16-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-149"><a href="#cb16-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-main-effect</span></span>
+<span id="cb16-150"><a href="#cb16-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Change from summer break start to ten days after summer break end, compared to the German-wide trend."</span></span>
+<span id="cb16-151"><a href="#cb16-151" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> </span>
+<span id="cb16-152"><a href="#cb16-152" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">eff_ch =</span> vacation_effect<span class="dv">-1</span>,</span>
+<span id="cb16-153"><a href="#cb16-153" aria-hidden="true" tabindex="-1"></a>         <span class="at">lab_x =</span> <span class="fu">pmax</span>(<span class="dv">0</span>,eff_ch),</span>
+<span id="cb16-154"><a href="#cb16-154" aria-hidden="true" tabindex="-1"></a>         <span class="at">eff_lab =</span> <span class="fu">paste0</span>(<span class="fu">if_else</span>(vacation_effect<span class="sc">&gt;</span><span class="dv">1</span>,<span class="st">"+"</span>,<span class="st">""</span>),<span class="fu">round</span>(<span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>), <span class="at">digit=</span><span class="dv">1</span>),<span class="st">"%"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-155"><a href="#cb16-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(eff_ch, <span class="fu">fct_rev</span>(Land), <span class="at">label =</span> eff_lab, <span class="at">fill =</span> dir_color)) <span class="sc">+</span> </span>
+<span id="cb16-156"><a href="#cb16-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb16-157"><a href="#cb16-157" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x=</span>lab_x), <span class="at">hjust=</span><span class="dv">0</span>, <span class="at">nudge_x =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb16-158"><a href="#cb16-158" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
+<span id="cb16-159"><a href="#cb16-159" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span>,<span class="fl">7.5</span>)) <span class="sc">+</span></span>
+<span id="cb16-160"><a href="#cb16-160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span> </span>
+<span id="cb16-161"><a href="#cb16-161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span><span class="st">""</span>, <span class="at">title =</span> <span class="st">"Summer break effect"</span>) <span class="sc">+</span></span>
+<span id="cb16-162"><a href="#cb16-162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb16-163"><a href="#cb16-163" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb16-164"><a href="#cb16-164" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-165"><a href="#cb16-165" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-166"><a href="#cb16-166" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-167"><a href="#cb16-167" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-168"><a href="#cb16-168" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb16-169"><a href="#cb16-169" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-170"><a href="#cb16-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-173"><a href="#cb16-173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-174"><a href="#cb16-174" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2020</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
+<span id="cb16-175"><a href="#cb16-175" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2021</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
+<span id="cb16-176"><a href="#cb16-176" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">leff =</span> <span class="fu">log</span>(vacation_effect)) <span class="sc">|&gt;</span> <span class="fu">pull</span>(leff) <span class="sc">|&gt;</span> <span class="fu">t.test</span>()</span>
+<span id="cb16-177"><a href="#cb16-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb16-178"><a href="#cb16-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-179"><a href="#cb16-179" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional visualizations and further analyses with the data</span></span>
-<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a>Further analysis then should do: </span>
-<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>discuss if the effect was different in 2020, 2021, and 2022</span>
-<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>discuss some cases especially those states who deviate from the average answer, what are potential reasons</span>
+<span id="cb16-180"><a href="#cb16-180" aria-hidden="true" tabindex="-1"></a><span class="fu">## Additional visualizations and further analyses with the data</span></span>
+<span id="cb16-181"><a href="#cb16-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-182"><a href="#cb16-182" aria-hidden="true" tabindex="-1"></a>Further analysis then should do: </span>
+<span id="cb16-183"><a href="#cb16-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-184"><a href="#cb16-184" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>discuss if the effect was different in 2020, 2021, and 2022</span>
+<span id="cb16-185"><a href="#cb16-185" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>discuss some cases especially those states who deviate from the average answer, what are potential reasons</span>
+<span id="cb16-186"><a href="#cb16-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-187"><a href="#cb16-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-188"><a href="#cb16-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2020</span></span>
-<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2020. Panels are as described in the caption of @fig-example-BW." </span></span>
-<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
-<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>plot_year <span class="ot">&lt;-</span> <span class="cf">function</span>(y) RKI <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year, stateCode) <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y, <span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Refdatum)) <span class="sc">+</span></span>
-<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stateCode =</span> BL, <span class="at">Refdatum =</span> start), </span>
-<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stateCode =</span> BL, <span class="at">Refdatum =</span> start), </span>
-<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> end, <span class="at">xmax =</span> end <span class="sc">+</span> <span class="dv">10</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Fall_smooth), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Trend),<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y), </span>
-<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yend =</span> Fall_smooth, <span class="at">y =</span> Trend, <span class="at">xend =</span> Refdatum, <span class="at">x =</span> Refdatum, <span class="at">color =</span> dir_color),  </span>
-<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">angle =</span> <span class="dv">20</span>) ) <span class="sc">+</span></span>
-<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
-<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Land, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>, <span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Summer breaks"</span>,y)) <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
-<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2020</span>)</span>
-<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-190"><a href="#cb16-190" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-191"><a href="#cb16-191" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2020</span></span>
+<span id="cb16-192"><a href="#cb16-192" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2020. Panels are as described in the caption of @fig-example-BW." </span></span>
+<span id="cb16-193"><a href="#cb16-193" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
+<span id="cb16-194"><a href="#cb16-194" aria-hidden="true" tabindex="-1"></a>plot_year <span class="ot">&lt;-</span> <span class="cf">function</span>(y) RKI <span class="sc">|&gt;</span> <span class="fu">group_by</span>(year, stateCode) <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y, <span class="fu">month</span>(Refdatum) <span class="sc">%in%</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-195"><a href="#cb16-195" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Refdatum)) <span class="sc">+</span></span>
+<span id="cb16-196"><a href="#cb16-196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stateCode =</span> BL, <span class="at">Refdatum =</span> start), </span>
+<span id="cb16-197"><a href="#cb16-197" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> start, <span class="at">xmax =</span> end, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb16-198"><a href="#cb16-198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rect</span>(<span class="at">data =</span> summervac <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">stateCode =</span> BL, <span class="at">Refdatum =</span> start), </span>
+<span id="cb16-199"><a href="#cb16-199" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">xmin =</span> end, <span class="at">xmax =</span> end <span class="sc">+</span> <span class="dv">10</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>), <span class="at">fill =</span> <span class="st">"gray"</span>, <span class="at">alpha =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb16-200"><a href="#cb16-200" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Fall_smooth), <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb16-201"><a href="#cb16-201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Trend),<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb16-202"><a href="#cb16-202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">data =</span> RKI_m <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> y), </span>
+<span id="cb16-203"><a href="#cb16-203" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">yend =</span> Fall_smooth, <span class="at">y =</span> Trend, <span class="at">xend =</span> Refdatum, <span class="at">x =</span> Refdatum, <span class="at">color =</span> dir_color),  </span>
+<span id="cb16-204"><a href="#cb16-204" aria-hidden="true" tabindex="-1"></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>,<span class="st">"cm"</span>), <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">angle =</span> <span class="dv">20</span>) ) <span class="sc">+</span></span>
+<span id="cb16-205"><a href="#cb16-205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colors) <span class="sc">+</span></span>
+<span id="cb16-206"><a href="#cb16-206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Land, <span class="at">scales =</span> <span class="st">"free"</span>, <span class="at">nrow =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb16-207"><a href="#cb16-207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,<span class="at">y=</span><span class="st">""</span>, <span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Summer breaks"</span>,y)) <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb16-208"><a href="#cb16-208" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-209"><a href="#cb16-209" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2020</span>)</span>
+<span id="cb16-210"><a href="#cb16-210" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-211"><a href="#cb16-211" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-212"><a href="#cb16-212" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-213"><a href="#cb16-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2021</span></span>
-<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2021. Panels are as described in the caption of @fig-example-BW." </span></span>
-<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
-<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2021</span>)</span>
-<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-215"><a href="#cb16-215" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-216"><a href="#cb16-216" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2021</span></span>
+<span id="cb16-217"><a href="#cb16-217" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2021. Panels are as described in the caption of @fig-example-BW." </span></span>
+<span id="cb16-218"><a href="#cb16-218" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
+<span id="cb16-219"><a href="#cb16-219" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2021</span>)</span>
+<span id="cb16-220"><a href="#cb16-220" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-221"><a href="#cb16-221" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-222"><a href="#cb16-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-223"><a href="#cb16-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2022</span></span>
-<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2022. Panels are as described in the caption of @fig-example-BW." </span></span>
-<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
-<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2022</span>)</span>
-<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-232"><a href="#cb16-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-start-effect</span></span>
-<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The beginning of he summer break and the effect are unrelated."</span></span>
-<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> </span>
-<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">as_date</span>(<span class="fu">yday</span>(start)), <span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>), <span class="at">color =</span> <span class="fu">factor</span>(year))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Start of summer break"</span>, <span class="at">y =</span> <span class="st">"New cases vs. German-wide trend (%)"</span>) <span class="sc">+</span></span>
-<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title=</span><span class="fu">element_blank</span>())</span>
-<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb16-244"><a href="#cb16-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-map-effect</span></span>
-<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The effect does not show a clear geographic pattern."</span></span>
-<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a>DE_shp <span class="sc">|&gt;</span> <span class="fu">right_join</span>(RKI_m, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NAME_1"</span> <span class="ot">=</span> <span class="st">"Land"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>))) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
-<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
-<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(</span>
-<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">"blue"</span>,</span>
-<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a>    <span class="at">mid =</span> <span class="st">"white"</span>,</span>
-<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"red"</span>,</span>
-<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a>    <span class="at">midpoint =</span> <span class="dv">0</span>,</span>
-<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Change (%)"</span></span>
-<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-225"><a href="#cb16-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-226"><a href="#cb16-226" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-2022</span></span>
+<span id="cb16-227"><a href="#cb16-227" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "All federal states in 2022. Panels are as described in the caption of @fig-example-BW." </span></span>
+<span id="cb16-228"><a href="#cb16-228" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 7.5</span></span>
+<span id="cb16-229"><a href="#cb16-229" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_year</span>(<span class="dv">2022</span>)</span>
+<span id="cb16-230"><a href="#cb16-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-231"><a href="#cb16-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-234"><a href="#cb16-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-235"><a href="#cb16-235" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-start-effect</span></span>
+<span id="cb16-236"><a href="#cb16-236" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The beginning of he summer break and the effect are unrelated."</span></span>
+<span id="cb16-237"><a href="#cb16-237" aria-hidden="true" tabindex="-1"></a>RKI_m <span class="sc">|&gt;</span> </span>
+<span id="cb16-238"><a href="#cb16-238" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">as_date</span>(<span class="fu">yday</span>(start)), <span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>), <span class="at">color =</span> <span class="fu">factor</span>(year))) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-239"><a href="#cb16-239" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Start of summer break"</span>, <span class="at">y =</span> <span class="st">"New cases vs. German-wide trend (%)"</span>) <span class="sc">+</span></span>
+<span id="cb16-240"><a href="#cb16-240" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb16-241"><a href="#cb16-241" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.title=</span><span class="fu">element_blank</span>())</span>
+<span id="cb16-242"><a href="#cb16-242" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-243"><a href="#cb16-243" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-246"><a href="#cb16-246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-247"><a href="#cb16-247" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-map-effect</span></span>
+<span id="cb16-248"><a href="#cb16-248" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "The effect does not show a clear geographic pattern."</span></span>
+<span id="cb16-249"><a href="#cb16-249" aria-hidden="true" tabindex="-1"></a>DE_shp <span class="sc">|&gt;</span> <span class="fu">right_join</span>(RKI_m, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"NAME_1"</span> <span class="ot">=</span> <span class="st">"Land"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-250"><a href="#cb16-250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="dv">100</span><span class="sc">*</span>(vacation_effect<span class="dv">-1</span>))) <span class="sc">+</span> <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb16-251"><a href="#cb16-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span></span>
+<span id="cb16-252"><a href="#cb16-252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(</span>
+<span id="cb16-253"><a href="#cb16-253" aria-hidden="true" tabindex="-1"></a>    <span class="at">low =</span> <span class="st">"blue"</span>,</span>
+<span id="cb16-254"><a href="#cb16-254" aria-hidden="true" tabindex="-1"></a>    <span class="at">mid =</span> <span class="st">"white"</span>,</span>
+<span id="cb16-255"><a href="#cb16-255" aria-hidden="true" tabindex="-1"></a>    <span class="at">high =</span> <span class="st">"red"</span>,</span>
+<span id="cb16-256"><a href="#cb16-256" aria-hidden="true" tabindex="-1"></a>    <span class="at">midpoint =</span> <span class="dv">0</span>,</span>
+<span id="cb16-257"><a href="#cb16-257" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">"Change (%)"</span></span>
+<span id="cb16-258"><a href="#cb16-258" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb16-259"><a href="#cb16-259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb16-260"><a href="#cb16-260" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-261"><a href="#cb16-261" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-262"><a href="#cb16-262" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-263"><a href="#cb16-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
-<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a>Discuss generalizability of results. Probably limited but possible if another pandemic has similar proporties. </span>
+<span id="cb16-264"><a href="#cb16-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion</span></span>
+<span id="cb16-265"><a href="#cb16-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-266"><a href="#cb16-266" aria-hidden="true" tabindex="-1"></a>Discuss generalizability of results. Probably limited but possible if another pandemic has similar proporties. </span>
+<span id="cb16-267"><a href="#cb16-267" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-268"><a href="#cb16-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interactive Visualization / Data Dashboard {.appendix}</span></span>
-<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a>It should be possible to make a dashboard with selection of states and years and perhaps also some dynamic state rankings. </span>
+<span id="cb16-269"><a href="#cb16-269" aria-hidden="true" tabindex="-1"></a><span class="fu">## Interactive Visualization / Data Dashboard {.appendix}</span></span>
+<span id="cb16-270"><a href="#cb16-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-271"><a href="#cb16-271" aria-hidden="true" tabindex="-1"></a>It should be possible to make a dashboard with selection of states and years and perhaps also some dynamic state rankings. </span>
+<span id="cb16-272"><a href="#cb16-272" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-273"><a href="#cb16-273" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-274"><a href="#cb16-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Source {.appendix}</span></span>
-<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a>Probably necessary. </span>
-<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered .appendix}</span></span>
-<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb16-283"><a href="#cb16-283" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb16-275"><a href="#cb16-275" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Source {.appendix}</span></span>
+<span id="cb16-276"><a href="#cb16-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-277"><a href="#cb16-277" aria-hidden="true" tabindex="-1"></a>Probably necessary. </span>
+<span id="cb16-278"><a href="#cb16-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-279"><a href="#cb16-279" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered .appendix}</span></span>
+<span id="cb16-280"><a href="#cb16-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-281"><a href="#cb16-281" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb16-282"><a href="#cb16-282" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

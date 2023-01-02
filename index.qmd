@@ -1,5 +1,5 @@
 ---
-title: "The summer break effect  the CoViD-19 pandemic 2020-2022 in Germany"
+title: "The summer break effect on the CoViD-19 in Germany 2020-2022"
 author: "Jan Lorenz"
 date: "Mon, Dec 2, 2023"
 format: 
@@ -7,7 +7,7 @@ format:
     toc: true                   # This creates the table of context menu
     toc-depth: 2                # Increase if you want to have subsections in the table of context menu
     number-sections: true
-    code-fold: true
+    code-fold: true 
     code-tools: true
 bibliography: references.bib
 ---
@@ -19,11 +19,13 @@ The fate of a pandemic like the CoViD19 pandemic 2020-2022 is determined by the 
 - During summer break kids are not in school as well as many of their parents who take holidays. This cuts off many daily channels of contagion. 
 - On the other hand, families tend to travel during holidays which opens new channels of contagion through contacts while travelling or visits of relatives and friends. 
 
-This data analysis sheds light on these questions analyzing data from German federal states for the years 2020, 2021 and 2022. 
+This data analysis uses data from German federal states for the years 2020, 2021 and 2022. Over all, summer breaks in school seem to be more accelerating than decelerating contagion. However, this effect has almost vanished to be inconclusive in 2022 which marks the beginning of the endemic phase in Germany. 
 
 ## Data
 
-German summer school holidays regionally differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. 
+German summer school holidays differ across the federal states of Germany which produces a natural setting to disentangle the effect of vacation from the general trend of the pandemic. 
+
+The dates of the summer breaks are shown in @fig-vacation. 
 
 ```{r}
 #| label: fig-vacation
@@ -60,9 +62,13 @@ summervac |> pivot_longer(c(start,end)) |>
   theme_minimal(base_size = 16)
 ```
 
-The dates of the summer breaks are shown in @fig-vacation. The holiday end dates vary by maximally `r variation |> filter(year==2021) |> pull(end_variation)` days in 2021 (`r variation |> filter(year==2020) |> pull(end_variation)` days in 2020, `r variation |> filter(year==2022) |> pull(end_variation)` days in 2022).
+The ending dates of summer breaks differ by maximally `r variation |> filter(year==2021) |> pull(end_variation)` days in 2021 (`r variation |> filter(year==2020) |> pull(end_variation)` days in 2020, `r variation |> filter(year==2022) |> pull(end_variation)` days in 2022).
 
-The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. @fig-generaltrend shows these trends for the summer months in 2020, 2021, and 2022. The new cases differ substantially in over all size. 
+The effect of summer holidays has to be judged against a general trend. The best available proxy for a general trend is using the new cases in all of Germany, the German-wide trend. 
+Detailed data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at
+<https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland>. The data is aggregated to new cases per day per federal states. For the following analyses we use seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting. 
+
+@fig-generaltrend shows the German-wide trends for the months June, July, August and September in 2020, 2021, and 2022. The trajectories of daily new cases (seven-day averages) differ substantially between the years: maximally around 2,000 new cases in 2020; slightly more than 10,000 daily new cases in 2021, and a maximum of almost 100,000 new cases a day in 2022. 
 
 ```{r}
 #| label: fig-generaltrend
@@ -78,7 +84,7 @@ RKI_DE |> filter(month(Refdatum) %in% 6:9) |>
 ```
 
 
-## Over all summer school vacations accelerates/decelerates contagio (TO BE ANSWERED) 
+## Analysis 
 
 @fig-example-BW demonstrates the basic idea of the analysis: For each state-year combination we look how much the summer break increases or decreased the new cases compared with the German-wide trend. To that end, we normalize the German-wide trend such that the new cases in the state and the German-wide trend coincide at the beginning of the holidays. 
 
@@ -159,13 +165,6 @@ RKI_m |> filter(year == 2020) |> mutate(leff = log(vacation_effect)) |> pull(lef
 RKI_m |> filter(year == 2021) |> mutate(leff = log(vacation_effect)) |> pull(leff) |> t.test()
 RKI_m |> filter(year == 2022) |> mutate(leff = log(vacation_effect)) |> pull(leff) |> t.test()
 ```
-
-
-
-Detailed data for Germany on regional units is available through the RKI
-<https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland>. The data is aggregate to new cases per day per federal states. 
-
-
 
 
 ## Additional visualizations and further analyses with the data
