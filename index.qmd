@@ -134,8 +134,7 @@ RKI |> group_by(year, stateCode) |> filter(stateCode == "BW", month(Refdatum) %i
   theme_minimal()
 ```
 
-We measure the increase or decrease as the *vacation effect factor* $v$, such that ... 
-
+We use this concept to compute the *summer break effect* as the percentage increase (or decrease) which daily new cases have above (or below) the normalized German-wide trend ten days after the end of the summer break in the respective state. @fig-main-effect shows all these changes. 
 
 ```{r}
 #| label: fig-main-effect
@@ -160,6 +159,14 @@ RKI_m |>
         axis.text.x = element_blank())
 ```
 
+The strongest effects are visible in 2020 in Mecklemburg-Vorpommern, Saarland, and Sachsen where cases have increase more the three times as much (more than +200%) as the German-wide trend. In total, twelve of the 16 federal states showed an increasing summer break effect. Large effects in percentage were possible because daily new cases were very close to zero in some states in summer 2020 after the initial wave in spring has been broken.
+
+In 2021, the pattern repeated with only three states showing decreasing effects while most other states showed clearly increasing summer break effects. 
+
+In 2022, effect summer break effects were on average smaller and the there were substantially more states with a decreasing summer break effect. 
+
+
+
 ```{r}
 RKI_m |> filter(year == 2020) |> mutate(leff = log(vacation_effect)) |> pull(leff) |> t.test()
 RKI_m |> filter(year == 2021) |> mutate(leff = log(vacation_effect)) |> pull(leff) |> t.test()
@@ -167,7 +174,14 @@ RKI_m |> filter(year == 2022) |> mutate(leff = log(vacation_effect)) |> pull(lef
 ```
 
 
-## Additional visualizations and further analyses with the data
+## Conclusion
+
+Discuss generalizability of results. Probably limited but possible if another pandemic has similar proporties. 
+
+
+
+
+## Additional analyses {.appendix}
 
 Further analysis then should do: 
 
@@ -179,6 +193,7 @@ Further analysis then should do:
 #| label: fig-2020
 #| fig-cap: "All federal states in 2020. Panels are as described in the caption of @fig-example-BW." 
 #| fig-height: 7.5
+#| fig-width: 10
 plot_year <- function(y) RKI |> group_by(year, stateCode) |> filter(year == y, month(Refdatum) %in% 6:9) |> 
   ggplot(aes(x = Refdatum)) +
   geom_rect(data = summervac |> filter(year == y) |> mutate(stateCode = BL, Refdatum = start), 
@@ -202,6 +217,7 @@ plot_year(2020)
 #| label: fig-2021
 #| fig-cap: "All federal states in 2021. Panels are as described in the caption of @fig-example-BW." 
 #| fig-height: 7.5
+#| fig-width: 10
 plot_year(2021)
 ```
 
@@ -210,6 +226,7 @@ plot_year(2021)
 #| label: fig-2022
 #| fig-cap: "All federal states in 2022. Panels are as described in the caption of @fig-example-BW." 
 #| fig-height: 7.5
+#| fig-width: 10
 plot_year(2022)
 ```
 
@@ -234,16 +251,15 @@ DE_shp |> right_join(RKI_m, by = c("NAME_1" = "Land")) |>
     mid = "white",
     high = "red",
     midpoint = 0,
-    name = "Change (%)"
+    name = "Change (%)",
+    limits = c(-50,200),
+    na.value = "red"
   ) +
-  theme_void()
+  theme_void() +
+ labs(caption = "Color axis capped at +200%. 3 states above in 2020 in dark red. ")
 ```
 
 
-
-## Conclusion
-
-Discuss generalizability of results. Probably limited but possible if another pandemic has similar proporties. 
 
 
 ## Interactive Visualization / Data Dashboard {.appendix}
@@ -252,11 +268,8 @@ It should be possible to make a dashboard with selection of states and years and
 
 
 
-## Data Source {.appendix}
 
-Probably necessary. 
+<!-- ## References {.unnumbered .appendix} -->
 
-## References {.unnumbered .appendix}
-
-::: {#refs}
-:::
+<!-- ::: {#refs} -->
+<!-- ::: -->
