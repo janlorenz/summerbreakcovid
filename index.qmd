@@ -33,6 +33,14 @@ format:
   - the data (usually in csv)
 -->
 
+Slides [Direct Link](presentation.qmd)
+
+```{=html}
+<iframe src="https://janlorenz.github.io/summerbreakcovid/presentation.html" frameborder="0" width="800" height="550" style="border:1px solid black;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+```
+
+
+
 ## Introduction
 
 <!-- 
