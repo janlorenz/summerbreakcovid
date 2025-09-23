@@ -33,7 +33,7 @@ format:
   - the data (usually in csv)
 -->
 
-Slides [Direct Link](presentation.qmd)
+Slides [Direct Link](https://janlo.de/presentation.html)
 
 ```{=html}
 <iframe src="https://janlo.de/presentation.html" frameborder="0" width="800" height="550" style="border:1px solid black;" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
