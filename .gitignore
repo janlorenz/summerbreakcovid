@@ -39,3 +39,4 @@ vignettes/*.pdf
 .Renviron
 
 /.quarto/
+data/Aktuell_Deutschland_SarsCov2_Infektionen.csv
