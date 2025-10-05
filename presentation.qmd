@@ -10,7 +10,6 @@ date: "Jan 10, 2023"
 format: 
   revealjs:
     code-fold: true
-    standalone: true
     embed-resources: true
 ---
 

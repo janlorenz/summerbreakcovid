@@ -11,27 +11,10 @@ abstract: "Using daily new cases for the 16 federal states of Germany we analyze
 format: 
   html:
     code-fold: true
-    standalone: true
-    embed-resources: true
     number-sections: true
     toc: true
     toc-depth: 3
 ---
-<!-- Notes on workflow and delivery:
-- IMPORTANT: Select your language R or python
-- In both cases you render your report with quarto to an html file. The specification above should ensure that your html-file is a standalone file with embedded resources. That means that the figures which are produced by your data visualizations are included in the html fill. Otherwise the figures are in an extra folder. 
-- Put the data you need into a folder data/
-- All team members need to clone the repository to their local computers.
-- Every team member should finally have pushed some work to GitHub!
-- Commit early and often! Then we can help you when you have questions or need directions. 
-- Before you start to work as a team member: Always do "git pull" before!
-- Try to finish an individual work session with comments on next steps and open questions. Try to leave this file in a state such that it renders in quarto. Commit and push. 
-- CONFLICTS: Git conflicts will probably occur when you work in teams while pulling and pushing. This can be solved. If you do not manage, ask for help. Also, if you have conflict which are not git-related in the group :-) 
-- The final commits should include 
-  - the source file (usually qmd, or ipynb), 
-  - the rendered html file, 
-  - the data (usually in csv)
--->
 
 Slides [Direct Link](presentation.qmd)
 
@@ -39,17 +22,7 @@ Slides [Direct Link](presentation.qmd)
 <iframe class="slide-deck" style="border:1px solid lightgray;" width="100%" height="500" src="presentation.html"></iframe>
 ```
 
-
-
 ## Introduction
-
-<!-- 
-URGENT: Write a draft of this section!
-In this section describe: 
-- What is the research question(s) you want to answer and why?
-- With what data you want to answer the question?
-- Where does the data come from, how was it collected?
---> 
 
 The fate of a pandemic like the CoViD19 pandemic 2020-2022 is determined by the reproductive number which states how many others are infected by a newly infected person on average. Exponential growth or decline of new cases is determined by the reproductive number being above or below one. Small differences in environmental conditions, for example seasonality, can be important to make the difference. Also changes in daily behavior can make a difference. 
 
@@ -61,8 +34,6 @@ An interesting question is about the role of summer breaks in school. **Do summe
 This data analysis uses data about new daily CoViD-19 cases in the German federal states for the years 2020, 2021 and 2022 and the dates of the German summer breaks in schools in the federal states to answer this questions. 
 
 ## Data
-
-<!-- URGENT: Put the dataset you want to use into this repository and import it. -->
 
 ```{r}
 #| label: packages-and-data-import
