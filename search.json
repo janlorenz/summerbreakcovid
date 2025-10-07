@@ -49,6 +49,55 @@
     "text": "Footnotes\n\n\nOf course, the German-wide trend includes the new cases of the specific state we are looking at. Alternatives would be to look at all new cases only in states which are currently not on vacation, but this would be more complicated and also the number of states which are currently not on vacation can be quite low on some days which creates new difficulties in interpretation.↩︎\nWe do not weight by population.↩︎\nThe log-transformation is reasonable because the data can be expected to be closer to a normal distribution. The percentage change tend to be from a skew distribution because the theoretically maximal decrease is -100%, while the maximal increase is unbounded. The log-transformation removes also the lower bound and the distribution has no theoretical bounds as the normal distribution.↩︎\nThereby we compute the geometric means of the increase factor instead of its arithmetic mean.↩︎\nUpper bounds being \\(+\\infty\\) by definition in a one-sided t-test.↩︎"
   },
   {
+    "objectID": "presentation_pitch.html#driving-question",
+    "href": "presentation_pitch.html#driving-question",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Driving Question",
+    "text": "Driving Question\n\nDid summer breaks like school vacation increase or decrease the COVID-19 pandemic?\nFocus on Germany 2020-2022\n\nIdea: School summer breaks differ in Germany by federal state (16 state). This allows to compare the development of trends in states with and without summer breaks at a given time.\n\n\nI made a nice background image! I think it gives some emotional trigger to remember the times. Or does it distract?"
+  },
+  {
+    "objectID": "presentation_pitch.html#competing-mechanisms-both-directions-possible",
+    "href": "presentation_pitch.html#competing-mechanisms-both-directions-possible",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Competing mechanisms / Both directions possible",
+    "text": "Competing mechanisms / Both directions possible\n☀️️ Summer break\nDecreasing\n➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off channels of contagion\nIncreasing\n➡️ families travel ➡️ meeting relatives and friends ➡️ new channels of contagion"
+  },
+  {
+    "objectID": "presentation_pitch.html#data-covid-19-cases-in-germany",
+    "href": "presentation_pitch.html#data-covid-19-cases-in-germany",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Data: COVID-19 cases in Germany",
+    "text": "Data: COVID-19 cases in Germany\nI got a datset with detailed dataset on daily case number from the Robert Koch Institute (RKI) for Germany.\nhttps://media.githubusercontent.com/media/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland/main/Aktuell_Deutschland_SarsCov2_Infektionen.csv\nThis is a the output:\n\n\nCode\nlibrary(tidyverse)\nlibrary(patchwork)\nRKIraw &lt;- read_csv(\"data/Aktuell_Deutschland_SarsCov2_Infektionen.csv\", show_col_types = FALSE)\nRKIraw |&gt; glimpse()\n\n\nRows: 7,658,906\nColumns: 12\n$ IdLandkreis          &lt;dbl&gt; 1001, 1001, 1001, 1001, 1001, 1001, 1001, 1001, 1…\n$ Altersgruppe         &lt;chr&gt; \"A15-A34\", \"A15-A34\", \"A15-A34\", \"A35-A59\", \"A15-…\n$ Geschlecht           &lt;chr&gt; \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\", \"M\",…\n$ Meldedatum           &lt;date&gt; 2020-10-28, 2020-03-19, 2020-03-21, 2020-03-14, …\n$ Refdatum             &lt;date&gt; 2020-01-19, 2020-03-13, 2020-03-13, 2020-03-16, …\n$ IstErkrankungsbeginn &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ NeuerFall            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…\n$ NeuerTodesfall       &lt;dbl&gt; -9, -9, -9, -9, -9, -9, -9, -9, 0, -9, 0, -9, -9,…\n$ NeuGenesen           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, -9, 0, -9, 0, 0, 0, 0, 0,…\n$ AnzahlFall           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ AnzahlTodesfall      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1…\n$ AnzahlGenesen        &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0…"
+  },
+  {
+    "objectID": "presentation_pitch.html#data-processing",
+    "href": "presentation_pitch.html#data-processing",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Data processing",
+    "text": "Data processing\nGoal: Daily case numbers per Federal State smoothed with a last 7-days average.\nAfter scrutinizing the documentation https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland/ (in German) and the Gemeindeschlüssel I found that I shall sum AnzahlFall grouped by Refdatum and the sub-code for the Federal State.\n\n\nCode\n# Federal states codes in the order of IdLandkreis %/% 1000\nBL &lt;- c(\"SH\",\"HH\",\"NI\",\"HB\",\"NW\",\"HE\",\"RP\",\"BW\",\"BY\",\"SL\",\"BE\",\"BB\",\"MV\",\"SN\",\"ST\",\"TH\")\nRKIstate &lt;- \n  # First make a grid of all dates and all states to include zero-cases days\n  expand_grid(stateCode = BL, Refdatum = seq(as_date(\"2020-01-01\"), as_date(\"2022-12-31\"), by = \"days\")) |&gt; \n  # join all days with cases\n  left_join(\n    RKIraw %&gt;%  mutate(stateCode = factor(IdLandkreis %/% 1000, labels = BL)) %&gt;% \n      group_by(stateCode, Refdatum) %&gt;% \n      summarize(Fall = sum(AnzahlFall), .groups = \"drop\"), \n    by = c(\"stateCode\", \"Refdatum\")\n  ) |&gt; replace_na(list(Fall = 0)) # This puts a 0 (instead of NA) for days without cases\nRKIstate\n\n\n# A tibble: 17,536 × 3\n   stateCode Refdatum    Fall\n   &lt;chr&gt;     &lt;date&gt;     &lt;dbl&gt;\n 1 SH        2020-01-01     5\n 2 SH        2020-01-02     2\n 3 SH        2020-01-03     4\n 4 SH        2020-01-04     5\n 5 SH        2020-01-05     5\n 6 SH        2020-01-06     3\n 7 SH        2020-01-07     0\n 8 SH        2020-01-08     2\n 9 SH        2020-01-09     0\n10 SH        2020-01-10     0\n# ℹ 17,526 more rows"
+  },
+  {
+    "objectID": "presentation_pitch.html#time-trend-visual",
+    "href": "presentation_pitch.html#time-trend-visual",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Time Trend Visual",
+    "text": "Time Trend Visual\n\n\nCode\nRKIstate |&gt; \n  ggplot(aes(Refdatum, Fall)) +\n  geom_line() +\n  facet_wrap(~stateCode, scales = \"free_y\") +\n  labs(title = \"Daily COVID-19 cases in Germany by Federal State\",\n       subtitle = \"Raw data from Robert Koch Institute (RKI)\",\n       x = \"Date\", y = \"Daily cases\")\n\n\n\n\n\n\n\n\n\n\n\nShould I use the background image everywhere?"
+  },
+  {
+    "objectID": "presentation_pitch.html#summer-break-data",
+    "href": "presentation_pitch.html#summer-break-data",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Summer Break Data",
+    "text": "Summer Break Data\nI need to find or create a dataset with the summer break periods for each federal states like on https://www.schulferien.org/deutschland/ferien/sommer/"
+  },
+  {
+    "objectID": "presentation_pitch.html#next-steps",
+    "href": "presentation_pitch.html#next-steps",
+    "title": "Was there a summer vacation effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Next Steps",
+    "text": "Next Steps\n\nSmooth the data with a 7-days average\nFind or create a dataset with summer break periods for each federal state\nFind an answer which mechanism is stronger\n\nFind a suitable method to compare the trends in states with and without summer breaks\nFind a way to visualize the method and the results"
+  },
+  {
     "objectID": "presentation.html#both-directions-possible",
     "href": "presentation.html#both-directions-possible",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
