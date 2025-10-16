@@ -102,49 +102,56 @@
     "href": "presentation.html#both-directions-possible",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "Both directions possible",
-    "text": "Both directions possible\nDecreasing\n☀️ Summer break ➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off contagious channels\n\nIncreasing\n☀️ Summer break ➡️ families start to travel ➡️ new channels of contagion meeting strangers, relatives, and friends\n\n\nHow can we study which effect is stronger?"
+    "text": "Both directions possible\n☀️️ Summer break\n\nDecreasing\n➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off channels of contagion\n\n\nIncreasing\n➡️ families travel ➡️ meeting relatives and friends ➡️ new channels of contagion\n\n\nHow can we study which effect is stronger?"
   },
   {
     "objectID": "presentation.html#data",
     "href": "presentation.html#data",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "Data",
-    "text": "Data\nDetailed data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland. For this analysis the data is aggregated to new cases per day per federal state. For the following analyses we use seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting. That means for each day we look at the average of the new cases of that day and the six days before that day."
+    "text": "Data\nData for regional units in Germany is available through the Robert-Koch-Institut (RKI) at GitHub.\n\n\nAggregate new cases per day per federal state.\nSeven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting.\n\nOne data point: Average of new cases of that day and the six days before."
   },
   {
     "objectID": "presentation.html#german-trend",
     "href": "presentation.html#german-trend",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "German Trend",
-    "text": "German Trend\n\nGeneral trend of new cases (7 day average) in summer months. Note the different values on the y-axis scales!"
+    "text": "German Trend"
   },
   {
-    "objectID": "presentation.html#summer-breaks-differ",
-    "href": "presentation.html#summer-breaks-differ",
+    "objectID": "presentation.html#german-trend---summer-period",
+    "href": "presentation.html#german-trend---summer-period",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
-    "section": "Summer breaks differ!",
-    "text": "Summer breaks differ!\n\n\nStrategy of analysis: Judge the effect of a summer break in comparision to the German-wide trend."
+    "section": "German Trend - Summer Period",
+    "text": "German Trend - Summer Period"
+  },
+  {
+    "objectID": "presentation.html#school-summer-vacations",
+    "href": "presentation.html#school-summer-vacations",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "School summer vacations",
+    "text": "School summer vacations"
+  },
+  {
+    "objectID": "presentation.html#german-trend-with-summer-breaks",
+    "href": "presentation.html#german-trend-with-summer-breaks",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "German Trend with Summer Breaks",
+    "text": "German Trend with Summer Breaks\n\n\n\n\n\n\n\n\n\n\nStrategy of analysis:\nCompare Trend in federal state during summer break with the German-wide trend."
   },
   {
     "objectID": "presentation.html#idea",
     "href": "presentation.html#idea",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "Idea",
-    "text": "Idea\n\n\nFive days delay (incubation period)\nRe-scale the German-wide trend\nMeasure the summerbreak effect 5 days after the end of the summer break"
+    "text": "Idea\n\nFive days delay (incubation period)\nRe-scale the German-wide trend\nMeasure the summerbreak effect 5 days after the end of the summer break\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCases increase more than the German-wide trend."
   },
   {
-    "objectID": "presentation.html#vacation-more-often-increase-cases",
-    "href": "presentation.html#vacation-more-often-increase-cases",
+    "objectID": "presentation.html#two-years-later",
+    "href": "presentation.html#two-years-later",
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
-    "section": "Vacation more often increase cases",
-    "text": "Vacation more often increase cases\n\n\nIn most federal states case number increased more than the German-wide trend\nThe relationsships vanishes in 2022 (transition to endemic phase)"
-  },
-  {
-    "objectID": "presentation.html#statistical-significance",
-    "href": "presentation.html#statistical-significance",
-    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
-    "section": "Statistical significance",
-    "text": "Statistical significance\n\n\n\n\n\n\n\n\n\nYear\nMean effect\nLower bound 0.95-CI\np-value\n\n\n\n\n2020\n46%\n13.7%\n0.00899\n\n\n2021\n33.3%\n14.2%\n0.00266\n\n\n2022\n5.45%\n-5.13%\n0.196\n\n\n\nt-test of value being greater than zero."
+    "section": "Two years later",
+    "text": "Two years later\n\n\n\n\n\n\n\n\n\n\n\nCases increase less than the German-wide trend."
   },
   {
     "objectID": "presentation.html#all-federal-states-in-2020",
@@ -152,6 +159,34 @@
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "All federal states in 2020",
     "text": "All federal states in 2020"
+  },
+  {
+    "objectID": "presentation.html#vacation-more-often-increase-cases",
+    "href": "presentation.html#vacation-more-often-increase-cases",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Vacation more often increase cases",
+    "text": "Vacation more often increase cases\n\n\n\n\n\n\n\n\n\n\nIn most federal states case number increased more than the German-wide trend\nThe relationsships vanishes in 2022 (transition to endemic phase)"
+  },
+  {
+    "objectID": "presentation.html#average-summer-break-effect",
+    "href": "presentation.html#average-summer-break-effect",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Average summer break effect",
+    "text": "Average summer break effect\n\n\n\n\n\n\n\n\n\n\n\n\n2020\n2021\n2022\n\n\n\n\n+46%\n+33.3%\n+5.45%"
+  },
+  {
+    "objectID": "presentation.html#significance-of-average-effect",
+    "href": "presentation.html#significance-of-average-effect",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Significance of average effect",
+    "text": "Significance of average effect\n\n\n\n\n\n\n\n\n\nYear\nMean effect\nLower bound 0.95-CI\np-value\n\n\n\n\n2020\n+46%\n+13.7%\n0.00899\n\n\n2021\n+33.3%\n+14.2%\n0.00266\n\n\n2022\n+5.45%\n-5.13%\n0.196\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBootstrapped null distributions for the samples of the log-transformed effect for 2020, 2021, and 2022. For each sample there are 16 values (one per federal state). The null hypothesis is that the mean of these 16 values is zero. The red line shows the point estimate of the observed means."
+  },
+  {
+    "objectID": "presentation.html#conclusion-increasing-is-stronger",
+    "href": "presentation.html#conclusion-increasing-is-stronger",
+    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
+    "section": "Conclusion: Increasing is stronger",
+    "text": "Conclusion: Increasing is stronger\n☀️️ Summer break\nDecreasing\n➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off channels of contagion\n\nIncreasing\n➡️ families travel ➡️ meeting relatives and friends ➡️ new channels of contagion\n\n\nPotential reason:\nPrevention measures at school and the at the workplace worked better than those for leisure activities or when meeting friends and relatives."
   },
   {
     "objectID": "presentation.html#all-federal-states-in-2021",
@@ -173,12 +208,5 @@
     "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
     "section": "No geographic pattern",
     "text": "No geographic pattern"
-  },
-  {
-    "objectID": "presentation.html#simulation-null-distributions-and-plotting-the-observed-average-effect",
-    "href": "presentation.html#simulation-null-distributions-and-plotting-the-observed-average-effect",
-    "title": "The summer break effects on the CoViD-19 pandemic in Germany 2020-2022",
-    "section": "Simulation null distributions and plotting the observed average effect",
-    "text": "Simulation null distributions and plotting the observed average effect\n\n\n\n\n\n\n\n\n\n\n\n\n\nBootstrapped null distributions for the samples of the log-transformed effect for 2020, 2021, and 2022. For each sample there 16 values (one per federal state). The null hypothesis is that the mean of these 16 values is zero. The red line shows the point estimate of the observed means."
   }
 ]
