@@ -11,29 +11,38 @@ format:
   revealjs:
     code-fold: true
     embed-resources: true
+    smaller: true
+    auto-stretch: false
 ---
 
-# Do summer breaks *increase* or *decrease* the pandemic?
+# Do summer breaks *increase* or *decrease* the pandemic?  {background-image="img/COVIDtimes_3.jpg"}
 
 More technical: Do the reduce or increase the reproductive number?
 
 
-## Both directions possible
+## Both directions possible  {background-image="img/COVIDtimes_3.jpg"}
+
+
+☀️️ Summer break 
+
+. . .
 
 **Decreasing**  
 
-☀️ Summer break ➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off contagious channels
+➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off channels of contagion
 
-. . . 
+. . .
 
 **Increasing**  
-☀️ Summer break ➡️ families start to travel ➡️ new channels of contagion meeting strangers, relatives, and friends
 
-. . . 
+➡️ families travel ➡️ meeting relatives and friends ➡️ new channels of contagion
+
+. . .
 
 **How can we study which effect is stronger?**
 
-## Data
+
+## Data  {background-image="img/COVIDtimes_3.jpg"}
 
 ```{r}
 #| label: packages-and-data-import
@@ -58,28 +67,79 @@ load("data/RKI_vacation_shp.RData")
 #             Summer school vacation per federal state (BL=shortcode, Land=name of state, 
 #             with start and end date and year
 # DE_shp    : Shape files for maps of federal states 
-```
 
-Detailed data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at
-<https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland>. For this analysis the data is aggregated to new cases per day per federal state. For the following analyses we use seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting. That means for each day we look at the average of the new cases of that day and the six days before that day. 
-
-
-## German Trend
-
-```{r}
 smooth_cases <- function(x) (x + lag(x,1) + lag(x,2) + lag(x,3) + lag(x,4) + lag(x,5) + lag(x,6))/7
 RKI_DE <- RKIstate |> group_by(Refdatum) |> 
   summarise(Fall_DE = sum(Fall, na.rm = TRUE)) |> 
   mutate(Fall_DE_smooth = smooth_cases(Fall_DE),
          year = year(Refdatum))
+```
+
+Data for regional units in Germany is available through the Robert-Koch-Institut (RKI) at
+[GitHub](https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland). 
+
+. . .
+
+- Aggregate new cases per day per federal state. 
+- Seven-day averages to smooth out the typical weekly seasonality of CoViD-19 reporting. 
+    - One data point: Average of new cases of that day and the six days before.
+
+. . .
+
+```{r}
+#| fig-height: 3
+#| fig-width: 9
+RKI_DE |> 
+  pivot_longer(c(Fall_DE, Fall_DE_smooth)) |> 
+  filter(Refdatum >= as_date("2021-01-01"), Refdatum <= as_date("2021-06-30")) |>
+  ggplot(aes(Refdatum, value, color = name, linewidth = name)) +
+  geom_line() +
+  scale_color_manual(values = c("Fall_DE" = "blue", "Fall_DE_smooth" = "black"),
+                     labels = c("Daily new cases", "7-day average")) +
+  scale_linewidth_manual(values = c(0.5,2)) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b", date_minor_breaks = "1 week") +
+  labs(title="First half of 2021",x="",y="", color="") + 
+  guides(linewidth = "none") +
+  theme_minimal()
+```
+
+
+
+
+## German Trend  {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
+RKI_DE |>
+  ggplot(aes(Refdatum,Fall_DE_smooth)) + geom_line() + 
+  theme_minimal() + expand_limits(y = 0) + labs(x="",y="")
+```
+
+## German Trend - Summer Period {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
+RKI_DE |>
+  ggplot(aes(Refdatum,Fall_DE_smooth)) + geom_line() + 
+  annotate("rect", xmin = as_date("2020-06-01"), xmax = as_date("2020-10-01"), 
+  ymin = 0,  ymax = 4000, color = "red", alpha = 0) +
+  annotate("rect", xmin = as_date("2021-06-01"), xmax = as_date("2021-10-01"), 
+  ymin = 0,  ymax = 12000, color = "red", alpha = 0) +
+  annotate("rect", xmin = as_date("2022-06-01"), xmax = as_date("2022-10-01"), 
+  ymin = 0,  ymax = 100000, color = "red", alpha = 0) +
+  theme_minimal() + expand_limits(y = 0) + labs(x="",y="") 
+```
+
+<!-- 
+## German Trend  {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
 RKI_DE |> filter(month(Refdatum) %in% 6:9) |> 
   ggplot(aes(Refdatum,Fall_DE_smooth)) + geom_line() + facet_wrap(~year, scales = "free", nrow = 3) +
   theme_minimal() + expand_limits(y = 0) + labs(x="",y="")
 ```
 
-General trend of new cases (7 day average) in summer months. **Note the different values on the y-axis scales!**
+General trend of new cases (7 day average) in summer months. **Note the different values on the y-axis scales!** -->
 
-## Summer breaks differ!
+## School summer vacations {background-image="img/COVIDtimes_3.jpg"}
 
 ```{r}
 #| message: false
@@ -90,23 +150,54 @@ variation <- summervac |> group_by(year) |>
             end_variation = max(end) -min(end),
             overlap = min(end)-max(start)+1)
 # Plot of durations
-summervac |> pivot_longer(c(start,end)) |> 
+summer_long <- summervac |> pivot_longer(c(start,end)) |> 
+  mutate(BL = fct_inorder(Land) |> fct_rev() |> as.numeric(),
+  BL = BL*3000)
+summer_long |> 
   ggplot(aes(x = value, y = fct_rev(Land))) + 
-  geom_point() + geom_line() + 
+  geom_point(color = "darkgreen") + geom_line(color = "darkgreen") + 
   facet_wrap(~year, scales = "free_x") + 
   scale_x_date(date_minor_breaks = "1 week") +
   labs(x = "", y = "") +
   theme_minimal(base_size = 16)
 ```
 
-. . . 
 
-**Strategy of analysis:** Judge the effect of a summer break in comparision to the German-wide trend.
-
-
-## Idea 
+## German Trend with Summer Breaks {background-image="img/COVIDtimes_3.jpg"}
 
 ```{r}
+RKI_DE |>
+  ggplot(aes(Refdatum,Fall_DE_smooth)) + geom_line() + 
+  geom_point(data = summer_long, mapping = aes(x = value, y = BL, group = paste(BL,year)), color = "darkgreen") +
+  geom_line(data = summer_long, mapping = aes(x = value, y = BL, group = paste(BL,year)), color = "darkgreen") +
+  annotate("rect", xmin = as_date("2020-06-01"), xmax = as_date("2020-10-01"), 
+  ymin = 0,  ymax = 4000, color = "red", alpha = 0) +
+  annotate("rect", xmin = as_date("2021-06-01"), xmax = as_date("2021-10-01"), 
+  ymin = 0,  ymax = 12000, color = "red", alpha = 0) +
+  annotate("rect", xmin = as_date("2022-06-01"), xmax = as_date("2022-10-01"), 
+  ymin = 0,  ymax = 100000, color = "red", alpha = 0) +
+  theme_minimal() + expand_limits(y = 0) + labs(x="",y="") 
+```
+
+. . . 
+
+**Strategy of analysis:**    
+Compare Trend in federal state during summer break with the German-wide trend.
+
+
+
+## Idea  {background-image="img/COVIDtimes_3.jpg"}
+
+- Five days delay (incubation period)
+- Re-scale the German-wide trend 
+- Measure the **summerbreak effect** 5 days after the end of the summer break
+
+. . . 
+
+```{r}
+#| fig-height: 3
+#| fig-width: 6
+
 # Extend the dataset with vacation data
 RKIstate_ext <- RKIstate |> 
   mutate(Fall_smooth = smooth_cases(Fall)) |> 
@@ -142,7 +233,8 @@ RKI_mdel <- seq(-42,47,1) |> map(make_delayed_vacation_effect) |> list_rbind() |
 ```
 
 ```{r}
-#| fig-height: 2.4
+#| fig-height: 3
+#| fig-width: 6
 
 # colors for arrows in figure
 colors <- c("up" = "red", "down" = "darkgreen")
@@ -154,35 +246,116 @@ RKI <- RKIstate_ext |>
   select(stateCode,year,trend_factor) |>
   right_join(RKIstate_ext, by = c("stateCode", "year")) |>
   mutate(Trend = Fall_DE_smooth * trend_factor)
-RKI |> group_by(year, stateCode) |> filter(stateCode == "BW", month(Refdatum) %in% 6:9) |> 
+
+# RKI <- RKIstate_ext |>
+#   filter(Refdatum==start + 5) |>
+#   mutate(trend_factor = 1/Fall_DE_smooth*Fall_smooth) |>
+#   select(stateCode,year,trend_factor) |>
+#   right_join(RKIstate_ext, by = c("stateCode", "year")) |>
+#   mutate(Trend = Fall_DE_smooth * trend_factor)
+
+
+RKI |> group_by(year, stateCode) |> filter(stateCode == "BW", month(Refdatum) %in% 6:9, year == 2020) |> 
   ggplot(aes(x = Refdatum)) +
-  geom_rect(data = summervac |> filter(BL == "BW") |> mutate(Refdatum = start), 
+  geom_rect(data = summervac |> filter(BL == "BW", year == 2020) |> mutate(Refdatum = start), 
             aes(xmin = start, xmax = end, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.5) +
-  geom_rect(data = summervac |> filter(BL == "BW") |> mutate(Refdatum = start), 
+  geom_rect(data = summervac |> filter(BL == "BW", year == 2020) |> mutate(Refdatum = start), 
             aes(xmin = end, xmax = end + 5, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.25) +
-  geom_point(data = RKI |> filter(stateCode == "BW", Refdatum == start + 5),
-             aes(x = Refdatum, y = Fall_smooth), color = "blue", alpha = 0.5, size = 3) +
-  geom_point(data = RKI |> filter(stateCode == "BW", Refdatum == start + 5),
-             aes(x = Refdatum, y = Fall_smooth), size = 1.5) +
-  geom_line(aes(y = Fall_smooth), color = "black") +
-  geom_line(aes(y = Trend),color = "blue", alpha = 0.5) + 
-  geom_segment(data = RKI_mdel |> filter(stateCode == "BW", delay == 5), 
+  geom_point(data = RKI |> filter(stateCode == "BW", year == 2020, Refdatum == start + 5),
+             aes(x = Refdatum, y = Fall_smooth), color = "black", size = 5) +
+  geom_point(data = RKI |> filter(stateCode == "BW", year == 2020, Refdatum == start + 5),
+             aes(x = Refdatum, y = Fall_smooth), size = 2.5, color = "blue") +
+  geom_line(aes(y = Fall_smooth), color = "blue") +
+  geom_line(aes(y = Trend),color = "black") + 
+  geom_segment(data = RKI_mdel |> filter(stateCode == "BW", year == 2020, delay == 5), 
                aes(yend = Fall_smooth, y = Trend, xend = Refdatum, x = Refdatum, color = dir_color),  
                arrow = arrow(length = unit(0.25,"cm"), type = "closed", angle = 20) ) +
   scale_color_manual(values = colors) +
-  facet_wrap(~year, scales = "free") + 
+#  facet_wrap(~year, scales = "free") + 
   expand_limits(y = 0) + 
-  labs(x="",y="", title = "Summer breaks in Baden-Württemberg") + 
+  scale_x_date(date_breaks = "1 month", date_labels = "%b", date_minor_breaks = "1 week") +
+  labs(x="",y="", title = "Summer break in Baden-Württemberg 2020") + 
   guides(color = "none") + 
   theme_minimal()
 ```
 
+. . .
 
-- Five days delay (incubation period)
-- Re-scale the German-wide trend 
-- Measure the summerbreak effect 5 days after the end of the summer break
+- Cases increase more than the German-wide trend.
 
-## Vacation more often increase cases 
+
+## Two years later {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
+#| fig-height: 3
+#| fig-width: 6
+
+RKI |> group_by(year, stateCode) |> filter(stateCode == "BW", month(Refdatum) %in% 6:9, year == 2022) |> 
+  ggplot(aes(x = Refdatum)) +
+  geom_rect(data = summervac |> filter(BL == "BW", year == 2022) |> mutate(Refdatum = start), 
+            aes(xmin = start, xmax = end, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.5) +
+  geom_rect(data = summervac |> filter(BL == "BW", year == 2022) |> mutate(Refdatum = start), 
+            aes(xmin = end, xmax = end + 5, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.25) +
+  geom_point(data = RKI |> filter(stateCode == "BW", year == 2022, Refdatum == start + 5),
+             aes(x = Refdatum, y = Fall_smooth), color = "black", size = 5) +
+  geom_point(data = RKI |> filter(stateCode == "BW", year == 2022, Refdatum == start + 5),
+             aes(x = Refdatum, y = Fall_smooth), size = 2.5, color = "blue") +
+  geom_line(aes(y = Fall_smooth), color = "blue") +
+  geom_line(aes(y = Trend),color = "black") + 
+  geom_segment(data = RKI_mdel |> filter(stateCode == "BW", year == 2022, delay == 5), 
+               aes(yend = Fall_smooth, y = Trend, xend = Refdatum, x = Refdatum, color = dir_color),  
+               arrow = arrow(length = unit(0.25,"cm"), type = "closed", angle = 20) ) +
+  scale_color_manual(values = colors) +
+#  facet_wrap(~year, scales = "free") + 
+  expand_limits(y = 0) + 
+  scale_x_date(date_breaks = "1 month", date_labels = "%b", date_minor_breaks = "1 week") +
+  labs(x="",y="", title = "Summer break in Baden-Württemberg 2022") + 
+  guides(color = "none") + 
+  theme_minimal()
+```
+
+. . .
+
+- Cases increase less than the German-wide trend.
+
+## All federal states in 2020 {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
+#| fig-height: 6
+#| fig-width: 9
+plot_year <- function(y,d) {
+ RKI <- RKIstate_ext |>
+  filter(Refdatum==start + d) |>
+  mutate(trend_factor = 1/Fall_DE_smooth*Fall_smooth) |>
+  select(stateCode,year,trend_factor) |>
+  right_join(RKIstate_ext, by = c("stateCode", "year")) |>
+  mutate(Trend = Fall_DE_smooth * trend_factor)
+ RKI |> group_by(year, stateCode) |> filter(year == y, month(Refdatum) %in% 6:9) |> 
+  ggplot(aes(x = Refdatum)) +
+  geom_rect(data = summervac |> filter(year == y) |> mutate(stateCode = BL, Refdatum = start), 
+            aes(xmin = start, xmax = end, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.5) +
+  geom_rect(data = summervac |> filter(year == y) |> mutate(stateCode = BL, Refdatum = start), 
+            aes(xmin = end, xmax = end + d, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.25) +
+  geom_point(data = RKI |> filter(year == y, Refdatum == start + d),
+             aes(x = Refdatum, y = Fall_smooth), color = "black", size = 3) +
+  geom_point(data = RKI |> filter(year == y, Refdatum == start + d),
+             aes(x = Refdatum, y = Fall_smooth), color = "blue", size = 1.5) +
+  geom_line(aes(y = Fall_smooth), color = "blue") +
+  geom_line(aes(y = Trend),color = "black") + 
+  geom_segment(data = RKI_mdel |> filter(year == y, delay == d), 
+               aes(yend = Fall_smooth, y = Trend, xend = Refdatum, x = Refdatum, color = dir_color),  
+               arrow = arrow(length = unit(0.25,"cm"), type = "closed", angle = 20) ) +
+  scale_color_manual(values = colors) +
+  facet_wrap(~Land, scales = "free", nrow = 4) + 
+  expand_limits(y = 0) + labs(x="",y="", title=paste("Summer breaks",y)) + guides(color = "none") + 
+  theme_minimal()
+}
+plot_year(2020, 5)
+```
+
+
+
+## Vacation more often increase cases {background-image="img/COVIDtimes_3.jpg"} 
 
 ```{r}
 RKI_mdel |> filter(delay == 5) |> 
@@ -208,7 +381,29 @@ RKI_mdel |> filter(delay == 5) |>
 - In most federal states case number increased more than the German-wide trend
 - The relationsships vanishes in 2022 (transition to endemic phase)
 
-## Statistical significance 
+
+## Average summer break effect  {background-image="img/COVIDtimes_3.jpg"}
+
+```{r}
+RKI_mdel |> filter(delay == 5) |> 
+  mutate(eff_ch = vacation_effect-1,
+         lab_x = pmax(0,eff_ch),
+         eff_lab = paste0(if_else(vacation_effect>1,"+",""),round(100*(vacation_effect-1), digit=1),"%")) |> 
+  ggplot(aes(eff_ch, fct_rev(Land), label = eff_lab, fill = dir_color)) + 
+  geom_col() +
+  geom_text(aes(x=lab_x), hjust=0, nudge_x = 0.2) +
+  facet_wrap(~year) +
+  xlim(c(-0.5,7.5)) +
+  scale_fill_manual(values = colors) + 
+  labs(x="", y="", title = "Summer break effect") +
+  guides(fill="none") +
+  theme_minimal(base_size = 16) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        axis.ticks = element_blank(),
+        axis.text.x = element_blank())
+```
 
 ```{r}
 tt20 <- RKI_mdel |> filter(year == 2020, delay == 5) |> 
@@ -222,91 +417,20 @@ tt22 <- RKI_mdel |> filter(year == 2022, delay == 5) |>
 tr <- function(x) format(100*(exp(x)-1), digits = 3)
 ```
 
+ 2020            | 2021        | 2022
+----------------:|------------:|-------------------------------------:        
+ +`r tr(tt20$estimate)`% | +`r tr(tt21$estimate)`%     | +`r tr(tt22$estimate)`% 
+
+
+
+## Significance of average effect {background-image="img/COVIDtimes_3.jpg"}
+
 Year          | Mean effect            | Lower bound 0.95-CI        | p-value
---------------|-----------------------:|---------------------------:|-------------------------------------:
-2020          | `r tr(tt20$estimate)`% | `r tr(tt20$lower_ci)`%     | `r format(tt20$p_value, digits = 3)`
-2021          | `r tr(tt21$estimate)`% | `r tr(tt21$lower_ci)`%     | `r format(tt21$p_value, digits = 3)`
-2022          | `r tr(tt22$estimate)`% | `r tr(tt22$lower_ci)`%     | `r format(tt22$p_value, digits = 3)`
+--------------|:----------------------:|:--------------------------:|:------------------------------------:
+2020          | +`r tr(tt20$estimate)`% | +`r tr(tt20$lower_ci)`%     | `r format(tt20$p_value, digits = 3)`
+2021          | +`r tr(tt21$estimate)`% | +`r tr(tt21$lower_ci)`%     | `r format(tt21$p_value, digits = 3)`
+2022          | +`r tr(tt22$estimate)`% |  `r tr(tt22$lower_ci)`%     | `r format(tt22$p_value, digits = 3)`
 
-t-test of value being greater than zero.
-
-
-
-# Appendix: Additional analyses {.appendix}
-
-## All federal states in 2020
-
-```{r}
-#| fig-height: 7.5
-#| fig-width: 10
-plot_year <- function(y,d) {
- RKI <- RKIstate_ext |>
-  filter(Refdatum==start + d) |>
-  mutate(trend_factor = 1/Fall_DE_smooth*Fall_smooth) |>
-  select(stateCode,year,trend_factor) |>
-  right_join(RKIstate_ext, by = c("stateCode", "year")) |>
-  mutate(Trend = Fall_DE_smooth * trend_factor)
- RKI |> group_by(year, stateCode) |> filter(year == y, month(Refdatum) %in% 6:9) |> 
-  ggplot(aes(x = Refdatum)) +
-  geom_rect(data = summervac |> filter(year == y) |> mutate(stateCode = BL, Refdatum = start), 
-            aes(xmin = start, xmax = end, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.5) +
-  geom_rect(data = summervac |> filter(year == y) |> mutate(stateCode = BL, Refdatum = start), 
-            aes(xmin = end, xmax = end + d, ymin = -Inf, ymax = Inf), fill = "gray", alpha = 0.25) +
-  geom_point(data = RKI |> filter(year == y, Refdatum == start + d),
-             aes(x = Refdatum, y = Fall_smooth), color = "blue", alpha = 0.5, size = 3) +
-  geom_point(data = RKI |> filter(year == y, Refdatum == start + d),
-             aes(x = Refdatum, y = Fall_smooth), size = 1.5) +
-  geom_line(aes(y = Fall_smooth), color = "black") +
-  geom_line(aes(y = Trend),color = "blue", alpha = 0.5) + 
-  geom_segment(data = RKI_mdel |> filter(year == y, delay == d), 
-               aes(yend = Fall_smooth, y = Trend, xend = Refdatum, x = Refdatum, color = dir_color),  
-               arrow = arrow(length = unit(0.25,"cm"), type = "closed", angle = 20) ) +
-  scale_color_manual(values = colors) +
-  facet_wrap(~Land, scales = "free", nrow = 4) + 
-  expand_limits(y = 0) + labs(x="",y="", title=paste("Summer breaks",y)) + guides(color = "none") + 
-  theme_minimal()
-}
-plot_year(2020, 5)
-```
-
-## All federal states in 2021
-
-```{r}
-#| fig-height: 7.5
-#| fig-width: 10
-plot_year(2021, 5)
-```
-
-## All federal states in 2022
-
-```{r}
-#| fig-height: 7.5
-#| fig-width: 10
-plot_year(2022, 5)
-```
-
-
-
-## No geographic pattern {.appendix}
-
-```{r}
-DE_shp |> right_join(RKI_mdel |> filter(delay == 5), by = c("NAME_1" = "Land")) |> 
-  ggplot(aes(fill=100*(vacation_effect-1))) + geom_sf() +
-  facet_wrap(~year) +
-  scale_fill_gradient2(
-    low = "darkgreen",
-    mid = "white",
-    high = "red",
-    midpoint = 0,
-    name = "Change (%)",
-    limits = c(-50,200),
-    na.value = "red"
-  ) +
-  theme_void() +
- labs(caption = "Color axis capped at +200%. 3 states above in 2020 in dark red. ")
-```
-
-## Simulation null distributions and plotting the observed average effect {.appendix}
 
 ```{r}
 #| fig-height: 3
@@ -330,5 +454,70 @@ plot_null_distribution(2022) + plot_annotation(title = "Simulation-based Null Di
 
 
 ::: aside 
-Bootstrapped null distributions for the samples of the log-transformed effect for 2020, 2021, and 2022. For each sample there 16 values (one per federal state). The null hypothesis is that the mean of these 16 values is zero. The red line shows the point estimate of the observed means.
+Bootstrapped null distributions for the samples of the log-transformed effect for 2020, 2021, and 2022. For each sample there are 16 values (one per federal state). The null hypothesis is that the mean of these 16 values is zero. The red line shows the point estimate of the observed means.
 :::
+
+## Conclusion: **Increasing** is stronger {background-image="img/COVIDtimes_3.jpg"}
+
+☀️️ Summer break 
+
+
+**Decreasing**  
+
+➡️ kids are not in school ➡️ parents take holidays ➡️ cuts off channels of contagion
+
+
+::: {.fragment .highlight-red}
+**Increasing**  
+
+➡️ families travel ➡️ meeting relatives and friends ➡️ new channels of contagion
+:::
+
+. . .
+
+Potential reason:  
+**Prevention measures**   
+[at **school** and the at the **workplace** worked better]{style="color:green;"} than   
+those for [**leisure** activities or when meeting **friends and relatives**]{style="color:red;"}.
+
+
+# Appendix: Additional analyses {.appendix}
+
+
+
+## All federal states in 2021
+
+```{r}
+#| fig-height: 6
+#| fig-width: 9
+plot_year(2021, 5)
+```
+
+## All federal states in 2022
+
+```{r}
+#| fig-height: 6
+#| fig-width: 9
+plot_year(2022, 5)
+```
+
+
+
+## No geographic pattern {.appendix}
+
+```{r}
+DE_shp |> right_join(RKI_mdel |> filter(delay == 5), by = c("NAME_1" = "Land")) |> 
+  ggplot(aes(fill=100*(vacation_effect-1))) + geom_sf() +
+  facet_wrap(~year) +
+  scale_fill_gradient2(
+    low = "darkgreen",
+    mid = "white",
+    high = "red",
+    midpoint = 0,
+    name = "Change (%)",
+    limits = c(-50,200),
+    na.value = "red"
+  ) +
+  theme_void() +
+ labs(caption = "Color axis capped at +200%. 3 states above in 2020 in dark red. ")
+```

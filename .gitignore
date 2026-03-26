@@ -38,9 +38,9 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# quarto website 
+# quarto website
 /.quarto/
 /_site/
 
-# Data
-data/Aktuell_Deutschland_SarsCov2_Infektionen.csv
+
+**/*.quarto_ipynb
